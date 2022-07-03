@@ -1,0 +1,33 @@
+import java.util.*;
+// Question Search a element  in a array
+
+class NEW {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int [] arr= new int[n];
+        for(int i=0; i<arr.length; i++){
+            arr[i]=sc.nextInt();
+        }
+        int num=sc.nextInt();
+     int ans=   LinearSearch(arr,n,num);
+        System.out.println(ans);
+
+    }
+
+
+    static int LinearSearch(int [] arr,int n,int num){
+
+        if(arr.length==0){
+            return -1;
+        }
+        int index=0;
+        for(int i=0; i<arr.length;  i++){
+            if(arr[i]==num){
+              index=i;
+            }
+        }
+        return index;
+    }
+}
