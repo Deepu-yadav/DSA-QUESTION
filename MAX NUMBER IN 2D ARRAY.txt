@@ -1,0 +1,28 @@
+import java.util.*;
+// Question Find MAX element in array
+
+class NEW {
+
+    public static void main(String[] args) {
+
+        int [][]arr={{1,2,3},{12,23,23},{5,6,7,8,9,10}};
+        int [] ans=SearchIn2DArray(arr);
+        System.out.println(Arrays.toString(ans));
+    }
+
+    static int [] SearchIn2DArray(int[][]arr){
+       // int max=arr[0][0];
+          int max=Integer.MIN_VALUE:
+
+
+        for(int r=0; r<arr.length; r++){
+            for(int c=0; c<arr[r].length; c++){
+              if(arr[r][c]>max){
+                  max=arr[r][c];
+              }
+            }
+
+        }
+        return new int[]{max};
+    }
+}

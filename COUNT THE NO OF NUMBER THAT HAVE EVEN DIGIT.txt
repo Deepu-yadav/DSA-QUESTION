@@ -1,0 +1,38 @@
+// Question COUNT NO OF NUMBER THAT HAVE EVEN DIGIT
+
+public class NEW {
+
+    public static void main(String[] args) {
+
+        int [] arr={12,34,555,66,77,88,999};
+
+        System.out.println(findAns(arr));
+    }
+
+    static int findAns(int [] arr){
+        int count=0;
+        for(int num:arr){
+            if(Even(num)){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    static boolean Even(int num){
+        int noofDigit=digit(num);
+        if(noofDigit %2==0){
+            return true;
+        }
+        return false;
+    }
+
+    static int digit(int num){
+        int count=0;
+        while (num>0){
+            count++;
+            num=num/10;
+        }
+        return count;
+    }
+}

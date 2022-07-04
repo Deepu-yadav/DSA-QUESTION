@@ -1,0 +1,25 @@
+import java.util.*;
+// Question Search a MAX Number in a array
+
+class NEW {
+
+    public static void main(String[] args) {
+        int arr[]={1,12,0,14,-28};
+
+         MAX(arr);
+
+    }
+
+    static void MAX(int[]arr){
+        int max=arr[0];
+
+        for(int i=0; i<arr.length; i++){
+            if(max<arr[i]){
+                max=arr[i];
+
+            }
+        }
+        System.out.println(max);
+
+    }
+

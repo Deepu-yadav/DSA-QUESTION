@@ -1,0 +1,20 @@
+import java.util.*;
+// Question COUNT HOW MANY VEN NUMBER PRESENT IN THE ARRAY
+
+class NEW {
+
+    public static void main(String[] args) {
+        int [] arr={2,3,4,5,6,8,10};
+        System.out.println(NOOfEvan(arr));
+    }
+
+    static int NOOfEvan(int []arr){
+        int count=0;
+        for(int i =0; i<arr.length; i++){
+            if(arr[i]%2==0){
+                count++;
+            }
+        }
+        return count;
+    }
+}
