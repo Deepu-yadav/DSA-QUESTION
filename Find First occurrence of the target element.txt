@@ -1,0 +1,96 @@
+// Mehtod 1
+
+class NEW {
+    public static void main(String[] args) {
+
+        int[] arr = {2, 2,3, 4, 5, 6, 7, 8, 9,9};
+        int target = 9;
+        System.out.println(find(arr, target));
+
+    }
+
+    static int find(int[] arr, int target) {
+        if (arr.length == 0) {
+            return -1;
+        }
+        if (arr[0] == target) {
+            return 0;
+        }
+        int start = 0;
+        int end = arr.length - 1;
+        int result = 0;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (target > arr[mid]) {
+                start = mid + 1;
+            } else if (target < arr[mid]) {
+                end = mid - 1;
+            } else if (arr[mid] == target) {
+                result = mid;
+                end = mid - 1;
+            }
+        }
+        return result;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Methos 2
+
+
+//  Question : Find the first occurrence of the target element
+
+class NEW{
+    public static void main(String[] args) {
+
+       int [] arr={2,2,4,5,6,7,8,9};
+       int target=4;
+        System.out.println(find(arr,target));
+
+    }
+
+    static int find(int [] arr,int target){
+        if(arr.length==0){
+            return -1;
+        }
+        if(arr[0]==target){
+            return 0;
+        }
+        int start=0;
+        int end=arr.length-1;
+        while (start<=end){
+            int mid=start+(end-start)/2;
+            if(target>arr[mid]){
+                start=mid+1;
+            }
+            if(target<arr[mid]){
+                end=mid-1;
+            }
+
+            if(arr[mid]==target){
+                for (int i=mid; i>=0; i--){
+                    if(arr[mid]!=arr[mid-i]){
+                        return mid;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+}

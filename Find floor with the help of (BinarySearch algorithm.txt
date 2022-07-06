@@ -1,0 +1,35 @@
+// Question: what is flore , it is the greatest number in array that is small or equal to the target element
+
+
+public class NEW {
+
+    public static void main(String[] args) {
+
+        int [] arr={1,2,3,4,5};
+        int target=6;
+        System.out.println(Flor(arr,target));
+    }
+    static int Flor(int [] arr,int target){
+        if(arr.length==0){
+            return -1;
+        }
+
+        int start=0;
+        int end=arr.length-1;
+        while (start<=end){
+            int mid=start+(end-start)/2;
+            // Binary Search algorithm
+            if(arr[mid]==target){
+                return mid;
+            }
+            if(target>arr[mid]){
+                start=mid+1;
+            }
+            if(target<arr[mid]){
+                end=mid-1;
+            }
+        }
+        return end;
+
+    }
+

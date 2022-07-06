@@ -1,0 +1,29 @@
+// Question: Find the smallest element that grater than the target element
+// if there is no greatest letters then return the first element od the letters
+
+
+public class NEW {
+
+    public static void main(String[] args) {
+        char [] letters={'c','f','j','p','z'};
+        char target='f';
+
+        System.out.println(Search(letters,target));
+    }
+    static int Search( char[] letters,char target){
+
+        int start=0;
+        int end=letters.length-1;
+        while (start<=end){
+            int mid=start+(end-start)/2;
+
+            if(target<letters[mid]){
+                end=mid-1;
+            }
+            else {
+                start=mid+1;
+            }
+        }
+        return letters[start % letters.length];
+    }
+}

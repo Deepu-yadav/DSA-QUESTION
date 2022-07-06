@@ -1,0 +1,35 @@
+// Question: what is celling , it is the smallest element in the array or grater than or equal to the target element
+
+
+public class NEW {
+
+    public static void main(String[] args) {
+
+        int [] arr={1,2,3,4,5};
+        int target=6;
+        System.out.println(Celling(arr,target));
+    }
+    static int Celling(int [] arr,int target){
+        if(arr.length==0){
+            return -1;
+        }
+
+        int start=0;
+        int end=arr.length-1;
+        while (start<=end){
+            int mid=start+(end-start)/2;
+            // Binary Search algorithm
+            if(arr[mid]==target){
+                return mid;
+            }
+            if(target>arr[mid]){
+                start=mid+1;
+            }
+            if(target<arr[mid]){
+                end=mid-1;
+            }
+        }
+        return start;
+    }
+
+}

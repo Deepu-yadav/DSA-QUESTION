@@ -1,0 +1,28 @@
+// Richest customer wealth
+
+public class NEW {
+
+    public static void main(String[] args) {
+        int[][] accounts = {{1, 2, 3}, {1, 2, 3}};
+        System.out.println(ans(accounts));
+
+    }
+
+    static int ans(int[][] accounts) {
+
+        int richest=Integer.MIN_VALUE;
+        // row=Person
+        // coloumn =accounts
+        for(int person=0; person<accounts.length; person++){
+            int sum=0;
+            for(int accont=0; accont<accounts[person].length; accont++){
+                sum+=accounts[person][accont];
+                if(sum>richest){
+                    richest=sum;
+                }
+            }
+        }
+
+return richest;
+    }
+}
