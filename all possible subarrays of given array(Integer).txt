@@ -1,0 +1,59 @@
+// Brute force approach 
+
+
+
+import java.lang.*;
+import java.util.Arrays;
+
+// Question : Print the all possible subarray of the given array
+
+class NEW {
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 4, 5};
+        PrintAllSubArray(arr);
+    }
+
+    static void PrintAllSubArray(int[] arr) {
+
+        for(int i=0; i<arr.length; i++){
+            for(int j=i; j<arr.length; j++){
+                for(int k=i; k<=j; k++){
+                    System.out.print(arr[k] +" ");
+                }
+                System.out.println();
+            }
+        }
+    }
+}
+
+
+// optimize approach using binary search
+
+
+import java.lang.*;
+import java.util.Arrays;
+
+// Question :    Print the all possible Subarray of the given array(Using Binary Search)
+class NEW {
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 4, 5};
+        IterateInArray(arr,5);
+    }
+    static void IterateInArray(int [] arr,int n){
+        for(int s=0; s<n; s++){
+            for(int e=s ; e<n; e++){
+                PrintArray(arr,s,e);
+            }
+        }
+    }
+
+    static void PrintArray(int []arr,int s,int e){
+        for(int i=s; i<=e; i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
+       }
+
