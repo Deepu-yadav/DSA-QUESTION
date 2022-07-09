@@ -1,0 +1,58 @@
+// Mountain array are those array which are firstly in increseing order and 
+// after it is in decreasing order
+
+
+
+// Brute force approach 
+
+
+
+import java.util.Arrays;
+// Question: Find peak index in the mountain array
+
+class NEW {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5,4,3,2,1};
+        int max=arr[0];
+
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]>max){
+                max=i;
+            }
+        }
+        System.out.println(max);
+        }
+
+    }
+
+
+
+// optimization way
+
+
+
+class NEW {
+    public static void main(String[] args) {
+        int[] arr = {1, 2,3,4,5,2,1};
+        System.out.println(Search(arr));
+    }
+
+    static int Search(int[]arr){
+
+        int start=0;
+        int end=arr.length-1;
+        while (end>start){
+            int mid=start+(end-start)/2;
+            if(arr[mid]>arr[mid+1]){
+                // its means we are in descending order
+                end=mid;
+            }
+            else {
+                start=mid+1;
+            }
+        }
+        return start;  // here we can return either start or end
+    }
+
+
+
