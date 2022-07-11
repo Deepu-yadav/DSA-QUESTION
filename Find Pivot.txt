@@ -1,0 +1,35 @@
+// optimised approach 
+
+// Question: Find Pivot number in the array
+
+// pivot means maximum number in the array
+
+public class Pivot {
+    public static void main(String[] args) {
+        int [] arr={1,2,4,5,6,7,9,0,1,2,3};
+        System.out.println(FindPivot(arr));
+
+    }
+    static int FindPivot(int []arr){
+        int start=0;
+        int end=arr.length-1;
+        while (start<=end){
+            
+            // Four cases 
+            int mid=start+(end-start)/2;
+            if(mid<arr.length-1 && arr[mid]>arr[mid+1]){
+                return mid;
+            }
+            if(mid>start && arr[mid]<arr[mid-1]){
+                return mid-1;
+            }
+            if(arr[start]>=arr[mid]){
+                end=mid-1;
+            }
+            if(arr[start]<=arr[mid]){
+                start=mid+1;
+            }
+        }
+        return -1;
+    }
+}
