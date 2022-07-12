@@ -1,0 +1,123 @@
+// Brute force approach (myself made)
+class Brute{
+
+  public static void main(String[] args) {
+   int [] arr={7,8,1,2,3,4,5,6};
+   int max=-1;
+
+   for(int i=0; i<arr.length; i++){
+    if(arr.length-i > i && arr[i]>arr[i+1]){
+     max=i+1;
+     break;
+    }
+    if(i>1 && arr[i]<arr[i-1]){
+     max=i-1;
+     break;
+    }
+    if(arr[arr.length-1]>arr[0]){
+     max=0;
+    }
+   }
+   System.out.println(max);
+  }
+   }
+
+
+
+
+
+
+
+
+
+// Optimized approach
+
+
+// Question: Count Rotation in sorted array
+// Count Rotation means pivot+1 rotation
+
+
+public class Pivot {
+    public static void main(String[] args) {
+
+        int[] arr = {6,7,1, 2, 3, 4, 5,};
+        System.out.println(RotationCount(arr));
+    }
+
+    static int RotationCount(int[]arr) {
+        int pivot=FindPivot(arr);
+        return pivot+1;
+    }
+
+    // find pivot if There is no duplicate
+    static int FindPivot(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            // There is four cases
+            if (mid<end && arr[mid] > arr[mid + 1]) {
+                return mid;
+            }
+            if (mid>start && arr[mid] < arr[mid - 1]) {
+                return mid - 1;
+            }
+            if (arr[start] >= arr[mid]) {
+                end = mid - 1;
+            }
+            if (arr[start] <= arr[mid]) {
+                start = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+// it is the for when the pivot is duplicate or
+    // when element is same at, start, mid, end
+
+    static int FindPivotWithDuplicate(int []arr){
+        int start=0;
+        int end=arr.length-1;
+        while (start<=end){
+
+            // Four cases
+            int mid=start+(end-start)/2;
+            if(mid<arr.length-1 && arr[mid]>arr[mid+1]){
+                return mid;
+            }
+            if(mid>start && arr[mid]<arr[mid-1]){
+                return mid-1;
+            }
+
+            // if element at middle,start,and end are equal than just skip the duplicate
+            if(arr[mid]==arr[start] && arr[mid]==arr[end]){
+
+                // skip the duplicate
+                // NOTE: what if these elements at start and end were the   pivot ?
+                // check if start is pivot
+                if(arr[start]>arr[start+1]){
+                    return start+1;
+                }
+                start++;
+
+                // check if end is pivot
+                if(arr[end]>arr[end-1]){
+                    return end-1;
+                }
+                end--;
+
+            }
+            // left side is sorted , so pivot should be sorted in right
+            else if(arr[start]<arr[mid] || (arr[start]==arr[mid] && arr[mid]>arr[end])){
+                start=mid+1;
+            }
+            else {
+                end=mid-1;
+            }
+
+        }
+        return -1;
+    }
+}
