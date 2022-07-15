@@ -1,0 +1,38 @@
+import java.util.Arrays;
+// Question: Find the Missing Number In the Array which gives Range from 0 tO N Where N size of the array
+
+public class MisingNumber {
+    public static void main(String[] args) {
+        int []arr={3,2,1,0,4};
+
+        System.out.println(Sorting(arr));
+
+    }
+    static int Sorting(int[]arr){
+        int i=0;
+        while (i<arr.length){
+            int CorrectIndex=arr[i];
+            if(arr[i]<arr.length && arr[i]!=arr[CorrectIndex]){
+                swap(arr,i,CorrectIndex);
+            }
+            else {
+                i++;
+            }
+        }
+        for(i=0; i<arr.length; i++){
+            if(arr[i]!=i){
+                return i;
+            }
+        }
+        return arr.length;
+
+    }
+
+    static void swap(int[] arr, int first, int second) {
+        int temp=arr[first];
+        arr[first]=arr[second];
+        arr[second]=temp;
+
+    }
+
+}
