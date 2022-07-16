@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class FindAllDuplicateInArray {
+    public static void main(String[] args) {
+        int[] arr={4,4,2,7,8,2,3,1,1};
+     //  Sorting(arr);
+        System.out.println(Sorting(arr));
+    }
+    static ArrayList<Integer> Sorting(int[]arr){
+     int i=0;
+     while (i<arr.length){
+         int correctIndex=arr[i]-1;
+         if(arr[i]!=arr[correctIndex]){
+             Swap(arr,i,correctIndex);
+         }
+         else {
+             i++;
+         }
+     }
+        // just find all Duplicate number
+        ArrayList<Integer> ans=new ArrayList<>();
+        for( i=0; i<arr.length; i++){
+            if(1<arr.length && arr[i]!=i+1){
+               ans.add(arr[i]);
+            }
+        }
+        return ans;
+
+    }
+    static void Swap(int[]arr,int first,int second){
+        int temp=arr[first];
+        arr[first]=arr[second];
+        arr[second]=temp;
+    }
+}
